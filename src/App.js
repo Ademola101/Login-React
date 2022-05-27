@@ -11,15 +11,28 @@ export default function App() {
   });
 
   const Login = (details) => {
-    console.log(details);
+    if (details.email === adminUser.email && details.password === "123456") {
+      setUser({
+        name: details.name,
+        email: details.email,
+        password: details.password
+      });
+    } else {
+      setError("Details do not match");
+    }
   };
 
   const logOut = () => {
-    console.log("logout");
+    setUser({
+      name: "",
+      password: "",
+      email: ""
+    });
   };
 
   const adminUser = {
     name: "Ademola",
+    email: "ade@mola",
     password: "123456"
   };
 
@@ -27,8 +40,8 @@ export default function App() {
     <>
       {user.name !== "" ? (
         <div>
-          Hello welcome user
-          <div> Logout </div>
+          Hello welcome user <br />
+          <button onClick={logOut}> Logout </button>
         </div>
       ) : (
         <LoginForm Login={Login} error={error} />

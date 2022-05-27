@@ -18,7 +18,7 @@ const LoginForm = ({ Login, error }) => {
         <div>
           <h2>Login</h2>
 
-          {/* error */}
+          {error !== "" ? <div> {error}</div> : ""}
 
           <div>
             <label htmlFor="name"> Name:</label>
