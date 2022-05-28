@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 import LoginForm from "./components/LoginForm";
-
+import welcomePage from "./components/welcomepge";
 export default function App() {
   const [error, setError] = useState("");
 
@@ -39,10 +39,7 @@ export default function App() {
   return (
     <>
       {user.name !== "" ? (
-        <div>
-          Hello welcome user <br />
-          <button onClick={logOut}> Logout </button>
-        </div>
+        <welcomePage logOut={logOut} />
       ) : (
         <LoginForm Login={Login} error={error} />
       )}
